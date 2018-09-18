@@ -1,0 +1,33 @@
+# -*- coding: utf-8 -*-
+import scrapy
+from vulCrawl.items import VulcrawlItem
+
+class VulstartcrawlSpider(scrapy.Spider):
+    name = 'vulStartCrawl'
+    allowed_domains = ['anquanke.com']
+    url="https://www.anquanke.com/vul?page="
+    #url="http://www.cnnvd.org.cn/web/vulnerability/querylist.tag?pageno="
+    offset=1
+    start_urls =[url+str(offset)]
+
+    def parse(self, response):
+        for each in response.xpath("//tr"):
+            #初始化对象模型
+            item=VulcrawlItem()
+            #漏洞名称
+            item['vulName']=each.xpath("normalize-space(./td[1]/div/a/text())").extract()[0]
+            #漏洞编号
+            item['vulNum']=each.xpath("normalize-space(./td[2]/a/text())").extract()[0]
+            #漏洞详情链接
+            domain="http://www.anquanke.com"
+            item['vulLink']=domain+each.xpath("normalize-space(./td[1]/div/a/@href)").extract()[0]
+            #漏洞更新时间
+            item['vulUpdateTime']=each.xpath("normalize-space(./td[5]/text())").extract()[0]
+            #item['vulUpdateTime']=data.xpath('normalize-space(string(.))').extract()[0]
+            #item['vulUpdateTime']=each.xpath("./div[2]/text()").extract()[0]
+
+            yield item
+        if self.offset<1000:
+            self.offset +=1
+        yield scrapy.Request(self.url+str(self.offset),callback=self.parse)
+
