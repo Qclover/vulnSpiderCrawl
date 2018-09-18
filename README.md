@@ -30,7 +30,7 @@ python3 taskCrawl.py
 当前路径为程序演示执行路径，实际运行时将pipeline.py文件下的漏洞保存路径改为./vul-file/vul-today.json
 
 ![Image start](https://github.com/Qclover/vulnSpiderCrawl/blob/master/excute/path.jpg)
----crawl result:
 
+---crawl result:
 ![Image start](https://github.com/Qclover/vulnSpiderCrawl/blob/master/excute/result1.png)
 ![Image start](https://github.com/Qclover/vulnSpiderCrawl/blob/master/excute/result2.png)
