@@ -20,10 +20,16 @@ python3 taskCrawl.py
 ![Image start](https://github.com/Qclover/vulnSpiderCrawl/blob/master/excute/start.png)
 
 
-设置爬行任务时间周期
-Set up crawling task time cycle
+---设置爬行任务时间周期
 
-crawl result:
+---Set up crawling task time cycle
+
+![Image start](https://github.com/Qclover/vulnSpiderCrawl/blob/master/excute/taskTime.png)
+----保存文件说明：
+当前路径为程序演示执行路径，实际运行时将pipeline.py文件下的漏洞保存路径改为./vul-file/vul-today.json
+
+![Image start](https://github.com/Qclover/vulnSpiderCrawl/blob/master/excute/path.png)
+---crawl result:
 
 ![Image start](https://github.com/Qclover/vulnSpiderCrawl/blob/master/excute/result1.png)
 ![Image start](https://github.com/Qclover/vulnSpiderCrawl/blob/master/excute/result2.png)
